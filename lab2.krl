@@ -22,7 +22,7 @@ ruleset b505207x1 {
             q = page:url("query");
             findName = function(x) {
                 pairs = x.split(re/&/);
-                pairs[0]
+                pairs[1]
                 //lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
                 //namePairs.length()
                 //lists.length()
