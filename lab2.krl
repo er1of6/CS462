@@ -21,11 +21,15 @@ ruleset b505207x1 {
         pre {
             q = page:url("query");
             name = (q.length() > 0) => q | "monkey";
+            add5 = function(x) {
+                x + 5
+            };
+            y = add5(5);
         }
        // notify(q, q.length() );
         
         
-        notify("Hello " + name, " ");
+        notify("Hello " + name, y);
 
     }
 
