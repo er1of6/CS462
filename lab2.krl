@@ -20,16 +20,14 @@ ruleset b505207x1 {
         select when pageview ".*" setting ()
         pre {
             q = page:url("query");
-            name = (q.length() > 0) => q | "monkey";
-            add5 = function(x) {
-                x + 5
+            findName = function(x) {
+                 name = (q.length() > 0) => q | "monkey";
             };
-            y = add5(5);
         }
        // notify(q, q.length() );
         
         
-        notify("Hello " + name, y);
+        notify("Hello " + finName(q), " ");
 
     }
 
