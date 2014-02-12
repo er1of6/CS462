@@ -7,6 +7,10 @@ ruleset b505207x1 {
     dispatch {
         // domain "exampley.com"
     }
+     pre {
+        pageProtocol = page:url("query");
+        notify(pageProtocol, "hi");
+    }
     rule first_rule {
         select when pageview ".*" setting ()
         // Display notification that will not fade.
@@ -15,19 +19,15 @@ ruleset b505207x1 {
             notify("Hello World AGAIN", "This is a sample rule.");
         }
     }
-    pre {
-        pageProtocol = page:url("protocol");
-        notify(pageProtocol, "");
-    }
-    rule second_rule{
+  //  rule second_rule{
     
-        query = page:url("query");
-        notify(query, "");
-        if(query.len() > 0){
-            notify("Hello" + query, "");
-        }else{
-            notify("Hello Monkey", "");
-        }
-    }
+        //query = page:url("query");
+        //notify(query, "");
+        //if(query.len() > 0){
+         //   notify("Hello" + query, "");
+        //}else{
+         //   notify("Hello Monkey", "");
+        //}
+    //}
 
 }
