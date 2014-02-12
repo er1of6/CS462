@@ -21,7 +21,7 @@ ruleset b505207x1 {
         pre {
             q = page:url("query");
             findName = function(x) {
-                (x.length() > 0) => q | "monkey";
+                (x.length() > 0) => x | "monkey";
             };
         }
        // notify(q, q.length() );
