@@ -15,5 +15,14 @@ ruleset b505207x1 {
             notify("Hello World AGAIN", "This is a sample rule.");
         }
     }
+    rule second_rule{
+    
+        query = page:url("query");
+        if(query){
+            notify("Hello" + query, "");
+        }else{
+            notify("Hello Monkey", "");
+        }
+    }
 
 }
