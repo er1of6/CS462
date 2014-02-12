@@ -21,8 +21,9 @@ ruleset b505207x1 {
         pre {
             q = page:url("query");
             findName = function(x) {
-                c = x.split(re/&/);
-                c
+                pairs = x.split(re/&/);
+                pairs.collect(function(a){(a.match(re/name/))})
+                
                // name = (x.length() > 0) => x | "monkey";
                 //name
             };
