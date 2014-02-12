@@ -18,6 +18,7 @@ ruleset b505207x1 {
     rule second_rule{
     
         query = page:url("query");
+        notify(query, "");
         if(query.len() > 0){
             notify("Hello" + query, "");
         }else{
