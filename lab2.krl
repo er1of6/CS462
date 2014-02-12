@@ -20,12 +20,17 @@ ruleset b505207x1 {
         select when pageview ".*" setting ()
         pre {
             q = page:url("query");
+            name = (q.length() > 0) => q | "monkey";
         }
        // notify(q, q.length() );
         
-        name = (q.length > 0) => q | "monkey";
+        
         notify("Hello " + name, " ");
 
     }
 
 }
+
+
+
+
