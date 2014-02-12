@@ -15,6 +15,6 @@ ruleset b505207x1 {
     rule second_rule {
         select when pageview ".*" setting ()
         // Display notification that will not fade.
-        notify("Hello World AGAIN", "This is a sample rule.") with position = top-left;
+        notify("Hello World AGAIN", "This is a sample rule.") with position = "top-left";
     }
 }
