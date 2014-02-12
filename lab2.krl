@@ -22,8 +22,9 @@ ruleset b505207x1 {
             q = page:url("query");
             findName = function(x) {
                 pairs = x.split(re/&/);
-                pairs[1]
-                //lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
+                //pairs[1]
+                lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
+                lists[0]
                 //namePairs.length()
                 //lists.length()
                // pairs.collect(function(a){(a.match(re/name/))})
