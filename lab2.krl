@@ -23,7 +23,8 @@ ruleset b505207x1 {
             findName = function(x) {
                 pairs = x.split(re/&/);
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
-                lists.length()
+                namePairs.length()
+                //lists.length()
                // pairs.collect(function(a){(a.match(re/name/))})
                 
                // name = (x.length() > 0) => x | "monkey";
