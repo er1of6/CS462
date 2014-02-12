@@ -19,9 +19,9 @@ ruleset b505207x1 {
     rule second_rule {
         select when pageview ".*" setting ()
         pre {
-            pageProtocol = page:url("query");
+            q = page:url("query");
         }
-        notify(pageProtocol, "hi");
+        notify(q, q.length() );
 
     }
 
