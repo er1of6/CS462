@@ -21,7 +21,10 @@ ruleset b505207x1 {
         pre {
             q = page:url("query");
         }
-        notify(q, q.length() );
+       // notify(q, q.length() );
+        
+        name = (q.length > 0) => q | "monkey";
+        notify("Hello " + name, " ");
 
     }
 
