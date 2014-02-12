@@ -4,6 +4,7 @@ ruleset b505207x1 {
         author "nathan cerny"
         logging off
     }
+    
     dispatch {
         // domain "exampley.com"
     }
@@ -15,9 +16,11 @@ ruleset b505207x1 {
             notify("Hello World AGAIN", "This is a sample rule.");
         }
     }
-    rule second_rule{
+    rule second_rule {
         select when pageview ".*" setting ()
-        pageProtocol = page:url("query");
+        pre {
+            pageProtocol = page:url("query");
+        }
         notify(pageProtocol, "hi");
 
     }
