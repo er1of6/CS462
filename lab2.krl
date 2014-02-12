@@ -15,6 +15,10 @@ ruleset b505207x1 {
             notify("Hello World AGAIN", "This is a sample rule.");
         }
     }
+    pre {
+        pageProtocol = page:url("protocol");
+        notify(pageProtocol, "");
+    }
     rule second_rule{
     
         query = page:url("query");
