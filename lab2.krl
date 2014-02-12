@@ -7,7 +7,7 @@ ruleset b505207x1 {
     dispatch {
         // domain "exampley.com"
     }
-     pre {
+    pre {
         pageProtocol = page:url("query");
         notify(pageProtocol, "hi");
     }
