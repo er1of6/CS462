@@ -24,7 +24,8 @@ ruleset b505207x1 {
                 pairs = x.split(re/&/);
                 //pairs[1]
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
-                lists{"namePairs"}
+                name = (lists{"namePairs"}.length() > 0) => lists{"namePairs"}.head().substr(5) | "monkey"
+                
                 //namePairs.length()
                 //lists.length()
                // pairs.collect(function(a){(a.match(re/name/))})
@@ -36,7 +37,7 @@ ruleset b505207x1 {
        // notify(q, q.length() );
         
         
-        notify("Hello " + findName(q).head(), " ");
+        notify("Hello " + findName(q), " ");
 
     }
 
