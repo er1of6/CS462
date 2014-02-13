@@ -57,11 +57,11 @@ ruleset b505207x1 {
         }   
 
         notify("RESULT", answer);
-        if answer then
-            noop();
-        fired{
-            set ent:fire_count 0
-        }
+    //    if answer then
+      //      noop();
+        //fired{
+          //  set ent:fire_count 0
+        //}
         
     }
 }
