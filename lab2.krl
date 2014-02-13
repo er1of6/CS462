@@ -37,7 +37,7 @@ ruleset b505207x1 {
             c = ent:fire_count;
         }
         if ent:fire_count < 5 then
-        notify("COUNT", ent:fire_count + 1)
+            notify("COUNT", ent:fire_count + 1)
         fired{
             ent:fire_count +=1 from 1;
         } 
@@ -50,7 +50,7 @@ ruleset b505207x1 {
             clearFireCount = function(x) {
                 pairs = x.split(re/&/);
                 lists = pairs.collect(function(a){a.match(re/clear=/) => "clearPairs" | "otherPairs"});
-                result = (lists{"clearPairs"}.length() > 0) => false | true;
+                result = (lists{"clearPairs"}.length() > 0) => true | false;
                 result
             };
             answer = clearFireCount(q); 
