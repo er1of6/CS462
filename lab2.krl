@@ -38,12 +38,10 @@ ruleset b505207x1 {
             c = ent:fire_count;
         }
         if ent:fire_count < 5 then
-        notify("COUNT", ent:fire_count)
+        notify("COUNT", ent:fire_count + 1)
         fired{
             ent:fire_count +=1 from 1;
-        } else{
-            clear ent:fire_count;
-        }
+        } 
     }
 }
 
