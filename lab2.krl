@@ -17,14 +17,14 @@ ruleset b505207x1 {
         }
     }
     rule second_rule {
-        select when pageview ".*" setting ()
+        select when web pageview
         pre {
             q = page:url("query");
             findName = function(x) {
                 pairs = x.split(re/&/);
                 //pairs[1]
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
-                lists[0]
+                lists["namePairs"]
                 //namePairs.length()
                 //lists.length()
                // pairs.collect(function(a){(a.match(re/name/))})
