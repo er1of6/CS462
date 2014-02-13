@@ -22,7 +22,6 @@ ruleset b505207x1 {
             q = page:url("query");
             findName = function(x) {
                 pairs = x.split(re/&/);
-                //pairs[1]
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
                 name = (lists{"namePairs"}.length() > 0) => lists{"namePairs"}.head().substr(5) | "monkey";
                 name
@@ -50,14 +49,18 @@ ruleset b505207x1 {
             q = page:url("query");
             clearFireCount = function(x) {
                 pairs = x.split(re/&/);
-                //pairs[1]
-                lists = pairs.collect(function(a){a.match(re/clear/) => "clearPairs" | "otherPairs"});
-                if (lists{"clearPairs"}.length() > 0) then
-                clear ent:fire_count
+                lists = pairs.collect(function(a){a.match(re/clear=/) => "clearPairs" | "otherPairs"});
+                result = lists{"clearPairs"}.length() > 0) => false | true;
+                result
             };
         }   
 
-        clearFireCount(q); 
+        result = clearFireCount(q); 
+        if result then
+            noop();
+        fired{
+            set ent:fire_count 0
+        }
     }
 }
 
