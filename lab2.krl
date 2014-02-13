@@ -56,9 +56,8 @@ ruleset b505207x1 {
             answer = clearFireCount(q); 
         }   
 
-        
         notify("RESULT", answer);
-        if result then
+        if answer then
             noop();
         fired{
             set ent:fire_count 0
