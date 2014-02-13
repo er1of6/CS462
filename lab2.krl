@@ -50,23 +50,19 @@ ruleset b505207x1 {
             clearFireCount = function(x) {
                 pairs = x.split(re/&/);
                 lists = pairs.collect(function(a){a.match(re/clear=/) => "clearPairs" | "otherPairs"});
-                result = lists{"clearPairs"}.length() > 0) => false | true;
+                result = (lists{"clearPairs"}.length() > 0) => false | true;
                 result
             };
+            answer = clearFireCount(q); 
         }   
 
-        result = clearFireCount(q); 
+        
+        notify("RESULT", answer);
         if result then
             noop();
         fired{
             set ent:fire_count 0
         }
+        
     }
 }
-
-
-
-
-
-
-
