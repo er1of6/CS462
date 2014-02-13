@@ -34,7 +34,7 @@ ruleset b505207x1 {
     rule rule_fired_count {
         select when web pageview
         pre{
-            c = ent:fire_count;
+            c = (ent:fire_count > 0 ) => ent:fire_count | 1;
         }
         if ent:fire_count < 5 then
             notify("COUNT", ent:fire_count)
