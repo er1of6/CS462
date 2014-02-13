@@ -36,7 +36,7 @@ ruleset b505207x1 {
        // notify(q, q.length() );
         
         
-        notify("Hello " + findName(q), " ");
+        notify("Hello " + findName(q)[0], " ");
 
     }
 
