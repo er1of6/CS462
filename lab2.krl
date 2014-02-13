@@ -39,7 +39,7 @@ ruleset b505207x1 {
         if ent:fire_count < 5 then
             notify("COUNT", ent:fire_count + 1)
         fired{
-            ent:fire_count +=1 from 1;
+            ent:fire_count +=1 from 0;
         } 
     }
 
