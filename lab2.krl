@@ -9,7 +9,7 @@ ruleset b505207x1 {
         // domain "exampley.com"
     }
     rule first_rule {
-        select when pageview ".*" setting ()
+        select when web pageview
         // Display notification that will not fade.
         every {
             notify("Hello World", "This is a sample rule.");
