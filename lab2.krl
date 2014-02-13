@@ -61,7 +61,7 @@ ruleset b505207x1 {
             noop();
         }
         fired{
-            set ent:fire_count -1;
+            set ent:fire_count 0;
         }
         
     }
