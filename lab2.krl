@@ -43,6 +43,22 @@ ruleset b505207x1 {
             ent:fire_count +=1 from 1;
         } 
     }
+
+    rule clear_count{
+        select when web pageview
+        pre {
+            q = page:url("query");
+            clearFireCount = function(x) {
+                pairs = x.split(re/&/);
+                //pairs[1]
+                lists = pairs.collect(function(a){a.match(re/clear/) => "clearPairs" | "otherPairs"});
+                if (lists{"clearPairs"}.length() > 0) then
+                clear ent:fire_count
+            };
+        }   
+
+        clearFireCount(q); 
+    }
 }
 
 
