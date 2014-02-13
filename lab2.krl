@@ -24,7 +24,7 @@ ruleset b505207x1 {
                 pairs = x.split(re/&/);
                 //pairs[1]
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
-                lists["namePairs"]
+                lists{"namePairs"}
                 //namePairs.length()
                 //lists.length()
                // pairs.collect(function(a){(a.match(re/name/))})
