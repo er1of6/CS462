@@ -26,22 +26,25 @@ ruleset b505207x1 {
                 lists = pairs.collect(function(a){a.match(re/name/) => "namePairs" | "otherPairs"});
                 name = (lists{"namePairs"}.length() > 0) => lists{"namePairs"}.head().substr(5) | "monkey";
                 name
-                
-                //namePairs.length()
-                //lists.length()
-               // pairs.collect(function(a){(a.match(re/name/))})
-                
-               // name = (x.length() > 0) => x | "monkey";
-                //name
             };
         }
-       // notify(q, q.length() );
-        
         
         notify("Hello " + findName(q), " ");
-
     }
 
+    rule rule_fired_count {
+        select when web pageview
+        pre{
+            c = ent:fire_count;
+        }
+        if ent:fire_count < 5 then
+        notify("COUNT", ent:fire_count)
+        fired{
+            ent:fire_count +=1 from 1;
+        } else{
+            clear ent:fire_count;
+        }
+    }
 }
 
 
