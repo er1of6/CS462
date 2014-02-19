@@ -15,10 +15,10 @@ ruleset b505207x2 {
         pre{
             watch_link = <<
      
-                <form id="thing" onsubmit="return false">
+                <form  onsubmit="return false">
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
-                    <input  type="submit" value="Submit">
+                    <input  id="thing" type="submit" value="Submit">
                 </form>
       
             >>;
