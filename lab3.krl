@@ -17,15 +17,15 @@ ruleset b505207x2 {
                 <form>
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
-                    <input type="submit" value="Submit">
+                    <input id = "watched" type="submit" value="Submit">
                 </form>
             </div>
             >>;
         }
         {
          //   append('body', watch_link);
-         replace_inner("#test", watch_link);
-            watch("#test", "click");
+         replace_inner("#main", watch_link);
+            watch("#watched", "click");
         }
         
    }
