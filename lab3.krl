@@ -8,12 +8,7 @@ ruleset b505207x2 {
     dispatch {
         // domain "exampley.com"
     }
-    
-    rule thing{
-         if(ent:username) then{
-           nofity("username isn't set");
-        }
-    }
+
     
     rule init {
         select when web pageview
