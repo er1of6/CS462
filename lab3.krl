@@ -14,31 +14,33 @@ ruleset b505207x2 {
         
         pre{
             watch_link = <<
-     
-                <form onsubmit="return false" >
+                <form id = "my_form" onsubmit="return false" >
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
-                    <input  id="thing" type="submit" value="Submit">
+                    <input type="submit" value="Submit">
                 </form>
-      
             >>;
         }
-        {
-        replace_inner("#main", watch_link);
-        watch("#thing", "click");
+        if(not ent:username) then{
+            append("#main",watch_link);
+            watch("#my_form", "submit");
+        }
+        fired{ 
+            last;
         }
     }
      
     rule clicked_rule {
-        select when web click "#thing"
-        
+        select when web submit "#my_form"
         pre{
-            firstname = evert:attr("firstname");
+            username = event:attrb("firstname") + " " + event:attrb("lastname");
         }
-       {
-        notify("You clicked", firstname);
+        replace_inner("#main", "Hello #{username}");
+        fired{
+            set:ent:username username;
         }
     }
+
     rule clear_stuff{
         select when web pageview
         pre {
@@ -57,8 +59,7 @@ ruleset b505207x2 {
             noop();
         }
         fired{
-            clear ent:firstName;
-            clear ent:lastName;
+            clear ent:userName;
         }
         
     }
