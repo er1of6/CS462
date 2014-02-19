@@ -29,4 +29,9 @@ ruleset b505207x2 {
         }
         
    }
+   
+    rule clicked_rule {
+        select when web click "#watched"
+        notify("You clicked", 'Watch');
+    }
 }
