@@ -31,7 +31,13 @@ ruleset b505207x2 {
      
     rule clicked_rule {
         select when web click "#thing"
-        notify("You clicked", 'Watch');
+        
+        pre{
+            firstname = evern:attr("firstname");
+        }
+       {
+        notify("You clicked", firstname);
+        }
     }
     rule clear_stuff{
         select when web pageview
