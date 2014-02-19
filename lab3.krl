@@ -35,6 +35,7 @@ ruleset b505207x2 {
         fired{ 
             last;
         }
+        
     }
      
     rule clicked_rule {
