@@ -25,6 +25,9 @@ ruleset b505207x2 {
             append("#main",watch_link);
             watch("#my_form", "submit");
         }
+        else{
+            notify("failed", "boy");
+        }
         fired{ 
             last;
         }
