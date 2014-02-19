@@ -9,6 +9,7 @@ ruleset b505207x2 {
         // domain "exampley.com"
     }
    show_form {
+    select when web pageview 
     replace_inner("#main", "Random text paragraph....");
    }
 }
