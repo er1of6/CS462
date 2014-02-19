@@ -65,7 +65,7 @@ ruleset b505207x2 {
             noop();
         }
         fired{
-            clear ent:userName;
+            clear ent:username;
         }
         
     }
