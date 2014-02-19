@@ -24,7 +24,7 @@ ruleset b505207x2 {
         }
         {
          //   append('body', watch_link);
-         replace_inner("#main", watch_link);
+         replace_inner("#test", watch_link);
             watch("#test", "click");
         }
         
