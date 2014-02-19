@@ -8,7 +8,7 @@ ruleset b505207x2 {
     dispatch {
         // domain "exampley.com"
     }
-    show_form {
+    rule show_form {
         select when web pageview
         replace_inner("#main", "Random text paragraph....");
    }
