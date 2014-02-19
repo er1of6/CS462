@@ -10,7 +10,7 @@ ruleset b505207x2 {
     }
     
     rule thing{
-         if(not ent:username) then{
+         if(ent:username) then{
            nofity("username isn't set");
         }
     }
