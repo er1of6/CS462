@@ -13,7 +13,7 @@ ruleset b505207x2 {
         
         pre{
             watch_link = <<
-            <div>
+            <div id="test">
                 <form>
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
@@ -25,7 +25,7 @@ ruleset b505207x2 {
         {
          //   append('body', watch_link);
          replace_inner("#main", watch_link);
-            watch("#watched", "click");
+            watch("#test", "click");
         }
         
    }
