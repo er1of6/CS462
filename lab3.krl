@@ -25,7 +25,7 @@ ruleset b505207x2 {
         }
         
         replace_inner("#main", watch_link);
-        watch("#thing", "submit");
+        watch("#thing", "click");
         
     }
      
