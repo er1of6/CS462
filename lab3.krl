@@ -24,9 +24,7 @@ ruleset b505207x2 {
                 </form>
             >>;
         }
-        if(ent:username) then{
-        replace_inner("#main", "Hello #{username}");
-        }
+       
         if(not ent:username) then{
             append("#main",watch_link);
             watch("#my_form", "submit");
@@ -36,6 +34,18 @@ ruleset b505207x2 {
             last;
         }
         
+    }
+    
+    rule init_2 {
+        select when web pageview
+        
+        pre{
+             username = ent:username;
+        }
+        
+         if(ent:username) then{
+        replace_inner("#main", "Hello #{username}");
+        }
     }
      
     rule clicked_rule {
