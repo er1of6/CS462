@@ -14,6 +14,8 @@ ruleset b505207x2 {
         select when web pageview
         
         pre{
+        
+            username = ent:username;
             watch_link = <<
                 <form id = "my_form" onsubmit="return false" >
                     First name: <input type="text" name="firstname"><br>
@@ -25,6 +27,9 @@ ruleset b505207x2 {
         if(not ent:username) then{
             append("#main",watch_link);
             watch("#my_form", "submit");
+        }
+        else{
+            replace_inner("#main", "Hello #{username}");
         }
         fired{ 
             last;
