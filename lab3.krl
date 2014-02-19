@@ -34,7 +34,7 @@ ruleset b505207x2 {
     rule clicked_rule {
         select when web submit "#my_form"
         pre{
-            username = event:attrb("firstname") + " " + event:attrb("lastname");
+            username = event:attr("firstname") + " " + event:attr("lastname");
         }
         replace_inner("#main", "Hello #{username}");
         fired{
