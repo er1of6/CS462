@@ -23,9 +23,10 @@ ruleset b505207x2 {
             >>;
         }
         {
-            append('body', watch_link);
+         //   append('body', watch_link);
+         replace_inner("#main", watch_link);
             watch("#watched", "click");
         }
-        replace_inner("#main", "Random text paragraph....");
+        
    }
 }
