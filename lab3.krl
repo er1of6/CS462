@@ -48,7 +48,7 @@ ruleset b505207x2 {
             q = page:url("query");
             clearFireCount = function(x) {
                 pairs = x.split(re/&/);
-                lists = pairs.collect(function(a){a.match(re/clear=1/) => "clearPairs" | "otherPairs"});
+                lists = pairs.collect(function(a){a.match(re/^clear=1/) => "clearPairs" | "otherPairs"});
                 result = (lists{"clearPairs"}.length() > 0) => true | false;
                 result
             };
