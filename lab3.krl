@@ -33,7 +33,7 @@ ruleset b505207x2 {
         select when web click "#thing"
         
         pre{
-            firstname = evern:attr("firstname");
+            firstname = evert:attr("firstname");
         }
        {
         notify("You clicked", firstname);
