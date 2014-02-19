@@ -15,7 +15,7 @@ ruleset b505207x2 {
         pre{
             watch_link = <<
      
-                <form >
+                <form onsubmit="return false" >
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
                     <input  id="thing" type="submit" value="Submit">
