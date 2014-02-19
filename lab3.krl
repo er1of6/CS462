@@ -8,7 +8,8 @@ ruleset b505207x2 {
     dispatch {
         // domain "exampley.com"
     }
-    rule show_form {
+    
+    rule init {
         select when web pageview
         
         pre{
@@ -17,24 +18,37 @@ ruleset b505207x2 {
                 <form>
                     First name: <input type="text" name="firstname"><br>
                     Last name: <input type="text" name="lastname">
-                    <input id = "watched" type="submit" value="Submit">
+                    <input id = "thing" type="submit" value="Submit">
                 </form>
             </div>
             >>;
         }
+        
+        replace_inner("#main", watch_link);
+        
+    }
+    
+   rule watch_rule {
+        select when pageview ".*" setting ()
+        pre {
+            watch_link = <<
+            <div>
+                <a id='watched' href="javascript:void(0)">
+                    Watched
+                </a>
+            </div>
+            >>;
+        }
         {
-           append('main', watch_link);
-        // replace_inner("#main", watch_link);
+            append('body', watch_link);
             watch("#watched", "click");
         }
-        
-   }
-   
+    }
+     
     rule clicked_rule {
         select when web click "#watched"
         notify("You clicked", 'Watch');
     }
-
     rule clear_stuff{
         select when web pageview
         pre {
