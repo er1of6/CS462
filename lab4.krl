@@ -30,7 +30,7 @@ ruleset b505207x3 {
                 year = movie.pick("$..year");
                 synopsis  = movie.pick("$..synopsis");
                 ratings  = movie.pick("$..ratings").as("str");
-                otherThing = ratings{"critics_score"};
+                otherThing = ratings.values(["critics_score"]);
                 otherThing
                 
             };
