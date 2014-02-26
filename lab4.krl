@@ -53,7 +53,7 @@ ruleset b505207x3 {
         
         replace_inner("#main", newDiv);
        
-       //replace_inner("#newdiv", getMovie("starwars") );
+       replace_inner("#newdiv", getMovie("starwars") );
        
     }
     rule second_rule {
