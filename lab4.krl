@@ -33,11 +33,15 @@ ruleset b505207x3 {
                 critics_rating = movie.pick("$..critics_rating");
                 audience_rating = movie.pick("$..audience_rating");
                 audience_score = movie.pick("$..audience_score");
-                
-                html = "<h2> " + title + "</h2>";
-                html = html + year;
+
                 html = << 
-                     <h2> #{title} </h2>
+                <h2> #{title} </h2>
+                    year:#{year}
+                    synopsis: #{synopsis}
+                    critics_score: #{critics_score} 
+                    critics_rating: #{critics_rating}
+                    audience_rating: #{audience_rating} 
+                    audience_score: #{audience_score}
 
                 >>;
                 
