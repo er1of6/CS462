@@ -9,13 +9,30 @@ ruleset b505207x3 {
         // domain "exampley.com"
         // xnrrv5u46fcruqw642tm7v2z
     }
+    global {
+        baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?";
+    }
     rule first_rule {
         select when web pageview
-        // Display notification that will not fade.
-        every {
-            notify("Hello World", "This is a sample rule.");
-            notify("Hello World AGAIN", "This is a sample rule.");
+       
+       pre{
+       
+       getMovie = funtion(searchTerm){
+         r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+               {"apikey": "xnrrv5u46fcruqw642tm7v2z",
+               "q": "starwars"
+               }
+              );
+              
+        r
         }
+              
+        
+       }
+       
+       append("#main", getMovie("thing");
+       
+       
     }
     rule second_rule {
         select when web pageview
