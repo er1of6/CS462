@@ -54,6 +54,13 @@ ruleset b505207x3 {
        
         }
         
+        every{
+        
+        append("#main", watch_link);
+        
+        watch("#my_form", "submit");
+        }
+        
      
        
     }
