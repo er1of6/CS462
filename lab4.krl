@@ -22,7 +22,7 @@ ruleset b505207x3 {
                     {"apikey": "xnrrv5u46fcruqw642tm7v2z",
                     "q": "starwars"});
               
-                r.pick("$.content").decode().values(["movies"]);
+                r.pick("$.content").decode().values().as("str");
                 
             };
         }
