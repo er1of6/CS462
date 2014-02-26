@@ -11,6 +11,13 @@ ruleset b505207x3 {
     }
     global {
         baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?";
+         watch_link = <<
+                <form id = "my_form" onsubmit="return false" >
+                    First name: <input type="text" name="firstname"><br>
+                    Last name: <input type="text" name="lastname">
+                    <input type="submit" value="Submit">
+                </form>
+            >>;
     }
     rule first_rule {
         select when web pageview
@@ -49,11 +56,9 @@ ruleset b505207x3 {
             
             newDiv = << <div id="newdiv"></div> >>;
         }
-        
-        
-        replace_inner("#main", newDiv);
        
-       replace_inner("#newdiv", getMovie("starwars") );
+        replace_inner("#main", getMovie("starwars") );
+        append("#main", watch_link);
        
     }
     rule second_rule {
