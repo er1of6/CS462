@@ -13,18 +13,11 @@ ruleset b505207x3 {
         baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?";
          watch_link = <<
                 <form id = "my_form" onsubmit="return false" >
-                    First name: <input type="text" name="firstname"><br>
-                    Last name: <input type="text" name="lastname">
+                    Title: <input type="text" name="inputTitle"><br>
                     <input type="submit" value="Submit">
                 </form>
             >>;
-    }
-    rule first_rule {
-        select when web pageview
-       
-       pre{
-       
-            getMovie = function(searchTerm){
+              getMovie = function(searchTerm){
                 r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
                     {"apikey": "xnrrv5u46fcruqw642tm7v2z",
                     "q": "#{searchTerm}"});
@@ -53,23 +46,33 @@ ruleset b505207x3 {
                 
                 html
             };
-            
-            newDiv = << <div id="newdiv"></div> >>;
+    }
+    rule first_rule {
+        select when web pageview
+       
+       pre{
+       
         }
         
-        every{
-       
-        replace_inner("#main", getMovie("starwars") );
-        append("#main", watch_link);
-        }
+     
        
     }
-    rule second_rule {
-        select when web pageview
-        pre {
-           
+      rule clicked_rule {
+        select when web submit "#my_form"
+        pre{
+            searchTitle = event:attr("inputTitle")
+            
+            
         }
         
+          every{
+       
+        replace_inner("#main", getMovie(searchTitle) );
+        append("#main", watch_link);
+        
+        watch("#my_form", "submit");
+        }
+       
     }
 }
 
