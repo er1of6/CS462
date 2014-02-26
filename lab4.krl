@@ -40,6 +40,8 @@ ruleset b505207x3 {
                      <h2> #{title} </h2>
 
                 >>;
+                
+                html
             };
         }
        
