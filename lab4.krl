@@ -36,12 +36,12 @@ ruleset b505207x3 {
 
                 html = << 
                 <h2> #{title} </h2>
-                    year:#{year}
-                    synopsis: #{synopsis}
-                    critics_score: #{critics_score} 
-                    critics_rating: #{critics_rating}
-                    audience_rating: #{audience_rating} 
-                    audience_score: #{audience_score}
+                    year:#{year} </br>
+                    synopsis: #{synopsis} </br>
+                    critics_score: #{critics_score} </br>
+                    critics_rating: #{critics_rating} </br>
+                    audience_rating: #{audience_rating} </br>
+                    audience_score: #{audience_score} </br>
 
                 >>;
                 
