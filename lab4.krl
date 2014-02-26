@@ -25,7 +25,7 @@ ruleset b505207x3 {
               //  r.pick("$.content").decode().values().tail().as("str");
               
                 movie = r.pick("$.content").decode().pick("$.movies[0]);
-                thumbnail = movie.pick("..thumbnail");
+                thumbnail = movie.pick("$..thumbnail");
                 
             };
         }
