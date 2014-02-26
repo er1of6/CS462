@@ -27,7 +27,8 @@ ruleset b505207x3 {
                 movie = r.pick("$.content").decode().pick("$.movies[0]");
                 thumbnail = movie.pick("$..thumbnail");
                 title = movie.pick("$..title");
-                title
+                year = movie.pick("$..year");
+                year
                 
             };
         }
