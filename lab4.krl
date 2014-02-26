@@ -27,10 +27,10 @@ ruleset b505207x3 {
                 title = movie.pick("$..title");
                 year = movie.pick("$..year");
                 synopsis  = movie.pick("$..synopsis");
-                critics_score  = movie.pick("$..critics_score");
-                critics_rating = movie.pick("$..critics_rating");
-                audience_rating = movie.pick("$..audience_rating");
-                audience_score = movie.pick("$..audience_score");
+                critics score  = movie.pick("$..critics_score");
+                critics rating = movie.pick("$..critics_rating");
+                audience rating = movie.pick("$..audience_rating");
+                audience score = movie.pick("$..audience_score");
 
                 html = << 
                 <h2> #{title} </h2>
@@ -68,7 +68,6 @@ ruleset b505207x3 {
         select when web submit "#my_form"
         pre{
             searchTitle = event:attr("inputTitle")
-            
             
         }
         
