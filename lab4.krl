@@ -27,20 +27,20 @@ ruleset b505207x3 {
                 title = movie.pick("$..title");
                 year = movie.pick("$..year");
                 synopsis  = movie.pick("$..synopsis");
-                critics score  = movie.pick("$..critics_score");
-                critics rating = movie.pick("$..critics_rating");
-                audience rating = movie.pick("$..audience_rating");
-                audience score = movie.pick("$..audience_score");
+                critics_score  = movie.pick("$..critics_score");
+                critics_rating = movie.pick("$..critics_rating");
+                audience_rating = movie.pick("$..audience_rating");
+                audience_score = movie.pick("$..audience_score");
 
                 html = << 
                 <h2> #{title} </h2>
                 <img src="#{thumbnail}" width="100">  </br>
                     year:#{year} </br>
                     synopsis: #{synopsis} </br>
-                    critics_score: #{critics_score} </br>
-                    critics_rating: #{critics_rating} </br>
-                    audience_rating: #{audience_rating} </br>
-                    audience_score: #{audience_score} </br>
+                    critics score: #{critics_score} </br>
+                    critics rating: #{critics_rating} </br>
+                    audience rating: #{audience_rating} </br>
+                    audience score: #{audience_score} </br>
 
                 >>;
                 
