@@ -1,4 +1,4 @@
-ruleset HelloWorldApp {
+ruleset b505207x3{
   meta {
     name "Hello World"
     description <<
