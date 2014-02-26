@@ -29,7 +29,7 @@ ruleset b505207x3 {
                 title = movie.pick("$..title");
                 year = movie.pick("$..year");
                 synopsis  = movie.pick("$..synopsis");
-                ratings  = movie.pick("$..ratings");
+                ratings  = movie.pick("$..ratings").as("str");
                 ratings
                 
             };
