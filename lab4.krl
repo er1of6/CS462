@@ -48,7 +48,7 @@ ruleset b505207x3 {
 
                 >>;
                 
-                html = (total > 0) => html | << <h1> Invalid title: #{searchTerm} </h1> >>;
+                html = (total > 0) => html | << <h1> Invalid title: #{searchTitle} </h1> >>;
                 
                 html
             };
