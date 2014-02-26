@@ -46,7 +46,7 @@ ruleset b505207x3 {
                     total: #{total}
 
                 >>;
-                badHtml = << <h1> Invalid title: #{searchTitle} </h1> >>
+                badHtml = << <h1> Invalid title: #{searchTitle} </h1> >>;
                 html = (total > 0) => html | badHtml;
                 
                 html
