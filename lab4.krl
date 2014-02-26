@@ -20,9 +20,7 @@ ruleset b505207x3 {
             getMovie = function(searchTerm){
                 r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
                     {"apikey": "xnrrv5u46fcruqw642tm7v2z",
-                    "q": "starwars"});
-              
-              //  r.pick("$.content").decode().values().tail().as("str");
+                    "q": "#{searchTerm}"});
               
                 movie = r.pick("$.content").decode().pick("$.movies[0]");
                 thumbnail = movie.pick("$..thumbnail");
@@ -50,7 +48,7 @@ ruleset b505207x3 {
             };
         }
        
-       replace_inner("#main", "<div>" + getMovie("thing") + "</div>");
+       replace_inner("#main", "<div>" + getMovie("starwars") + "</div>");
        
     }
     rule second_rule {
