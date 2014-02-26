@@ -56,9 +56,12 @@ ruleset b505207x3 {
             
             newDiv = << <div id="newdiv"></div> >>;
         }
+        
+        every{
        
         replace_inner("#main", getMovie("starwars") );
         append("#main", watch_link);
+        }
        
     }
     rule second_rule {
