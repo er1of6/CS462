@@ -17,7 +17,7 @@ ruleset b505207x3 {
        
        pre{
        
-            getMovie = funtion(searchTerm){
+            getMovie = function(searchTerm){
                 r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
                     {"apikey": "xnrrv5u46fcruqw642tm7v2z",
                     "q": "starwars"});
