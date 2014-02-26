@@ -36,7 +36,7 @@ ruleset b505207x3 {
 
                 html = << 
                 <h2> #{title} </h2>
-                <img src="#{thumbnail}">
+                <img src="#{thumbnail}" width="100">  </br>
                     year:#{year} </br>
                     synopsis: #{synopsis} </br>
                     critics_score: #{critics_score} </br>
