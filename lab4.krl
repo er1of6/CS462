@@ -35,7 +35,7 @@ ruleset b505207x3 {
                 audience_score = movie.pick("$..audience_score");
                 
                 html = "<h2> " + title + "</h2>";
-                html += year;
+                html = html + year;
                 html
             };
         }
