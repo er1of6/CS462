@@ -28,7 +28,8 @@ ruleset b505207x3 {
                 thumbnail = movie.pick("$..thumbnail");
                 title = movie.pick("$..title");
                 year = movie.pick("$..year");
-                year
+                synopsis  = movie.pick("$..synopsis");
+                synopsis
                 
             };
         }
