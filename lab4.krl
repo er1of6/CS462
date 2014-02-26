@@ -36,7 +36,10 @@ ruleset b505207x3 {
                 
                 html = "<h2> " + title + "</h2>";
                 html = html + year;
-                html
+                html = << 
+                     <h2> #{title} </h2>
+
+                >>;
             };
         }
        
