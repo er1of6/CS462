@@ -22,6 +22,7 @@ ruleset b505207x3 {
                     {"apikey": "xnrrv5u46fcruqw642tm7v2z",
                     "q": "#{searchTerm}"});
               
+                total = r.pick("$.content").decode().pick("$.total");
                 movie = r.pick("$.content").decode().pick("$.movies[0]");
                 thumbnail = movie.pick("$..thumbnail");
                 title = movie.pick("$..title");
@@ -41,6 +42,7 @@ ruleset b505207x3 {
                     critics rating: #{critics_rating} </br>
                     audience rating: #{audience_rating} </br>
                     audience score: #{audience_score} </br>
+                    total: #{total}
 
                 >>;
                 
