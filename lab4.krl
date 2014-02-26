@@ -29,9 +29,14 @@ ruleset b505207x3 {
                 title = movie.pick("$..title");
                 year = movie.pick("$..year");
                 synopsis  = movie.pick("$..synopsis");
-                critics_score  = movie.pick("$..critics_score").as("str");
-                critics_score
+                critics_score  = movie.pick("$..critics_score");
+                critics_rating = movie.pick("$..critics_rating");
+                audience_rating = movie.pick("$..audience_rating");
+                audience_score = movie.pick("$..audience_score");
                 
+                html = "<h2> " + title + "</h2>";
+                html += year;
+                html
             };
         }
        
