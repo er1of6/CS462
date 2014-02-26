@@ -23,6 +23,8 @@ ruleset b505207x3 {
                     "q": "#{searchTerm}"});
               
                 total = r.pick("$.content").decode().pick("$.total");
+                
+                if total > 0
                 movie = r.pick("$.content").decode().pick("$.movies[0]");
                 thumbnail = movie.pick("$..thumbnail");
                 title = movie.pick("$..title");
@@ -45,6 +47,8 @@ ruleset b505207x3 {
                     total: #{total}
 
                 >>;
+                
+                html = (total > 0) => html | << <h1> Invalid title: #{searchTerm} </h1> >>;
                 
                 html
             };
