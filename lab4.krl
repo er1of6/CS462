@@ -17,21 +17,16 @@ ruleset b505207x3 {
        
        pre{
        
-       getMovie = funtion(searchTerm){
-         r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-               {"apikey": "xnrrv5u46fcruqw642tm7v2z",
-               "q": "starwars"
-               }
-              );
+            getMovie = funtion(searchTerm){
+                r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+                    {"apikey": "xnrrv5u46fcruqw642tm7v2z",
+                    "q": "starwars"});
               
-        r
+                r
+            };
         }
-              
-        
-       }
        
-       append("#main", getMovie("thing");
-       
+       append("#main", getMovie("thing"));
        
     }
     rule second_rule {
