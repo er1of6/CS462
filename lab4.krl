@@ -47,8 +47,10 @@ ruleset b505207x3 {
                 html
             };
         }
+        
+        replace_inner("#main", "<div id="newdiv"></div>");
        
-       replace_inner("#main", "<div>" + getMovie("starwars") + "</div>");
+       replace_inner("#newdiv", " getMovie("starwars") );
        
     }
     rule second_rule {
