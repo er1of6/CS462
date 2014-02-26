@@ -46,11 +46,14 @@ ruleset b505207x3 {
                 
                 html
             };
+            
+            newDiv = << <div id="newdiv"></div> >>;
         }
         
-        replace_inner("#main", "<div id="newdiv"></div>");
+        
+        replace_inner("#main", newDiv);
        
-       //replace_inner("#newdiv", " getMovie("starwars") );
+       //replace_inner("#newdiv", getMovie("starwars") );
        
     }
     rule second_rule {
