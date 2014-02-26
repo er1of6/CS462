@@ -26,7 +26,7 @@ ruleset b505207x3 {
             };
         }
        
-       append("#main", getMovie("thing"));
+       replace_inner("#main", "<div>" + getMovie("thing") + "</div>");
        
     }
     rule second_rule {
