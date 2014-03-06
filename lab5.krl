@@ -28,9 +28,9 @@ ruleset b505207x4 {
     pre{
         r = event:attr("checkin").decode();
         venue = r.pick("$.venue.name");
-        city = r.pick("$..city);
-        shout = r.pick("$..shout);
-        createdAt = r.pick("$..createdAt);
+        city = r.pick("$..city");
+        shout = r.pick("$..shout");
+        createdAt = r.pick("$..createdAt");
         
     
       
