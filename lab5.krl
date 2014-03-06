@@ -28,7 +28,8 @@ ruleset b505207x4 {
             my_html = <<
             <h5>Hello, world!</h5>
             #{ent:fsquarePush}
-            #{ent:innards}
+            #{ent:innards} </br>
+            #{ent:venue}
             >>;
         }
         {
@@ -40,12 +41,16 @@ ruleset b505207x4 {
     select when foursquare checkin
     pre{
         json_file = event:attr("checkin").decode();
+        venue = r.pick("$..address");
+        
+        //venue name, city, shout, and createdAt
       
     }
     
    always{
          set ent:fsquarePush true;
          set ent:innards json_file.as("str");
+         set ent:venue venue;
     }
    
   }
