@@ -7,17 +7,19 @@ ruleset b505207x4 {
         use module a41x186  alias SquareTag
     }
     
-    dispatch {
-        // domain "exampley.com"
-        // xnrrv5u46fcruqw642tm7v2z
-    }
-    global {
-      
-    }
     rule first_rule {
         select when web pageview
       
-      notify("Hello World", "This is a sample rule.");
+       pre {
+            my_html = <<
+            <h5>Hello, world!</h5>
+            #{ent:fsquarePush}
+            >>;
+        }
+        {
+          
+            notify("Hello World!", my_html);
+        }
        
     }
     rule HelloWorld is active {
