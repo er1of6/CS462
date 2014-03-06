@@ -28,6 +28,7 @@ ruleset b505207x4 {
             my_html = <<
             <h5>Hello, world!</h5>
             #{ent:fsquarePush}
+            #{ent:innards}
             >>;
         }
         {
@@ -37,9 +38,14 @@ ruleset b505207x4 {
   }
   rule process_fs_checkin {
     select when foursquare checkin
+    pre{
+        json_file = event:attr("checkin").decode();
+      
+    }
     
    always{
          set ent:fsquarePush true;
+         set ent:innards json_file.as("str");
     }
    
   }
