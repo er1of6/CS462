@@ -40,7 +40,7 @@ ruleset b505207x4 {
   rule process_fs_checkin {
     select when foursquare checkin
     pre{
-        json_file = event:attr("checkin").decode();
+        r = event:attr("checkin").decode();
         venue = r.pick("$..address");
         
         //venue name, city, shout, and createdAt
