@@ -6,30 +6,16 @@ ruleset b505207x4 {
         use module a169x701 alias CloudRain
         use module a41x186  alias SquareTag
     }
-    
-    rule first_rule {
-        select when web pageview
-      
-       pre {
-            my_html = <<
-            <h5>Hello, world!</h5>
-            #{ent:fsquarePush}
-            >>;
-        }
-        {
-          
-            notify("Hello World!", my_html);
-        }
-       
-    }
+
     rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
             my_html = <<
             <h5>Hello, world!</h5>
-            #{ent:fsquarePush}
-            #{ent:innards} </br>
-            #{ent:venue}
+            Venue: #{ent:venue} </br>
+            City: #{ent:city} </br>
+            shout: #{ent:shout} </br>
+            createdAt: #{ent:createdAt} </br>
             >>;
         }
         {
@@ -41,16 +27,22 @@ ruleset b505207x4 {
     select when foursquare checkin
     pre{
         r = event:attr("checkin").decode();
-        venue = r.pick("$..address");
+        venue = r.pick("$.venue.name");
+        city = r.pick("$..city);
+        shout = r.pick("$..shout);
+        createdAt = r.pick("$..createdAt);
         
-        //venue name, city, shout, and createdAt
+    
       
     }
     
    always{
          set ent:fsquarePush true;
-         set ent:innards json_file.as("str");
+         set ent:innards r.as("str");
          set ent:venue venue;
+         set ent:city city;
+         set ent:shout shout;
+         set ent:createdAt createdAt;
     }
    
   }
