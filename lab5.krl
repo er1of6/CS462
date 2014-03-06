@@ -31,14 +31,9 @@ ruleset b505207x4 {
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
-        
-    
-      
     }
     
    always{
-         set ent:fsquarePush true;
-         set ent:innards r.as("str");
          set ent:venue venue;
          set ent:city city;
          set ent:shout shout;
