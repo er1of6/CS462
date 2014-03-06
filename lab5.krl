@@ -25,6 +25,7 @@ ruleset b505207x4 {
         pre {
             my_html = <<
             <h5>Hello, world!</h5>
+            #{ent:fsquarePush}
             >>;
         }
         {
@@ -32,5 +33,22 @@ ruleset b505207x4 {
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
         }
   }
+  rule process_fs_checkin {
+    select when foursquare checkin
+    
+   always{
+         set ent:fsquarePush true;
+    }
+   
+  }
+  
 }
+
+
+
+
+//Write a rule called process_fs_checkin that listens for the foursquare:checkin event. 
+//The rule should store the venue name, city, shout, and createdAt event attributes in entity variables. 
+//Write a rule called display_checkin that shows the results in SquareTag.
+//You will need to register the ruleset and install it in your SquareTag account. 
 
