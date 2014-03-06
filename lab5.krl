@@ -22,12 +22,6 @@ ruleset b505207x4 {
         }
        
     }
-    
-    rule thing {
-       //raise foursquare:checkin
-       //http:cs.kobj.net/sky/event/CC7FFEEE-A504-11E3-8962-8CADC377030C/<eid>
-    }
-    
     rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
@@ -38,7 +32,7 @@ ruleset b505207x4 {
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
-    }
+        }
   }
 }
 
