@@ -16,10 +16,8 @@ ruleset b505207x4 {
     }
     rule first_rule {
         select when web pageview
-       
-       pre{
-       
-        }
+      
+      notify("Hello World", "This is a sample rule.");
        
     }
     rule HelloWorld is active {
