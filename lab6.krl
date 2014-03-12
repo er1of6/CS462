@@ -38,8 +38,7 @@ ruleset b505207x5 {
         theMap = ent:m || {};
         key = event:attr("key");
         value = event:attr("value");
-        thing = '"' + key + '"';
-        theMap = theMap.put([thing], value);
+        theMap = theMap.put([key], value);
     }
     
     always{
@@ -52,3 +51,4 @@ ruleset b505207x5 {
 }
 
 //     CloudRain:createLoadPanel("Hello World!", {}, my_html);
+//  thing = '"' + key + '"';
