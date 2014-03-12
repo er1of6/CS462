@@ -32,6 +32,7 @@ ruleset b505207x4 {
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
+        r = r.as("str");
     }
     
    always{
@@ -39,7 +40,7 @@ ruleset b505207x4 {
          set ent:city city;
          set ent:shout shout;
          set ent:createdAt createdAt;
-         set ent:r r.as("str");
+         set ent:r r;
          
           raise explicit event new_location_data for b505207x5
                 with key = "fs_checkin"
