@@ -33,16 +33,16 @@ ruleset b505207x5 {
     select when explicit new_location_data
     
     pre{
-        map = ent:map;
+        map = ent:m;
         key = event:attr("key");
         value = event:attr("value");
-        map.put([key], value);
+        updateMap = map.put([key], value);
     }
     
     always{
         set ent:k key;
         set ent:v value;
-        set ent:map map;
+        set ent:m updateMap;
     }
     
     }
