@@ -38,13 +38,13 @@ ruleset b505207x5 {
         theMap = ent:m || {};
         key = event:attr("key");
         value = event:attr("value");
-        updateMap = theMap.put([key], value);
+        theMap = theMap.put([key], value);
     }
     
     always{
         set ent:k key;
         set ent:v value;
-        set ent:m updateMap;
+        set ent:m theMap;
     }
     
     }
