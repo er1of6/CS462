@@ -31,8 +31,7 @@ ruleset b505207x5 {
         value = event:attr("value");
     }
     
-    every{
-    
+    always{
         set ent:k key;
         set ent:v value;
     }
