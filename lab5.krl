@@ -32,6 +32,7 @@ ruleset b505207x4 {
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
         r = r.as("str");
+        innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt};
     }
     
    always{
@@ -42,7 +43,7 @@ ruleset b505207x4 {
          
           raise explicit event new_location_data for b505207x5
                 with key = 'fs_checkin2'
-                and value = venue;
+                and value = innards;
     }
    
   }
