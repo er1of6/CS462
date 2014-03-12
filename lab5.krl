@@ -39,7 +39,6 @@ ruleset b505207x4 {
          set ent:city city;
          set ent:shout shout;
          set ent:createdAt createdAt;
-         set ent:r r;
          
           raise explicit event new_location_data for b505207x5
                 with key = "fs_checkin"
