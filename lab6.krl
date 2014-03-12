@@ -9,7 +9,7 @@ ruleset b505207x5 {
     
     global {
     getValue = function(k) {
-      the_map = ent:my_map;
+      theMap = ent:m;
       value = theMap{k};
       value
     }
