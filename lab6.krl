@@ -7,12 +7,20 @@ ruleset b505207x5 {
         use module a41x186  alias SquareTag
     }
     
+    global {
+    getValue = function(k) {
+      the_map = ent:my_map;
+      value = theMap{k};
+      value
+    }
+  }
+    
   rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
         
             theMap = ent:m;
-            value = theMap{ent:k};
+            value = getValue("fs_checkin2");
             mapString = theMap.encode();
             len = theMap.length();
             my_html = <<
