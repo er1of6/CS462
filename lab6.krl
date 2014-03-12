@@ -13,7 +13,7 @@ ruleset b505207x5 {
         
             theMap = ent:m;
             value = theMap{ent:k};
-            mapString = theMap.as("str");
+            mapString = theMap.encode();
             len = theMap.length();
             my_html = <<
             <h5>Hello, world!</h5>
