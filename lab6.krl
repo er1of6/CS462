@@ -12,19 +12,21 @@ ruleset b505207x5 {
         pre {
         
             theMap = ent:m;
+            value = theMap{"fs_checkin2"};
             mapString = theMap.as("str");
             my_html = <<
             <h5>Hello, world!</h5>
             Value: #{ent:v} </br>
             Key: #{ent:k} </br>
-            #{mapString}
+            #{mapString} </br>
+            #{value}
             >>;
         }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
        
-            notify("message1", map.length()) with sticky = true;
+            notify("message1", theMap.length()) with sticky = true;
         }
   }   
     
