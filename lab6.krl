@@ -15,11 +15,10 @@ ruleset b505207x5 {
         value = event:attr("value");
     }
     
-    always{
+    every{
         replace_inner("#main", "Hello");
-        notify(key.as("str"), value.as("str")) with sticky = true;
+        notify(key.as("str"), value.as("str")) with sticky = true
     }
     
     }
-  
 }
