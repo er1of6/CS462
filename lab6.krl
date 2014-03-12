@@ -12,7 +12,7 @@ ruleset b505207x5 {
         pre {
         
             theMap = ent:m;
-            value = theMap{"fs_checkin2"};
+            value = theMap{ent:k};
             mapString = theMap.as("str");
             my_html = <<
             <h5>Hello, world!</h5>
