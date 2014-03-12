@@ -50,7 +50,7 @@ ruleset b505207x5 {
         value = event:attr("value");
     }
     
-    notify(key.as("str"), value.as("str"));
+    notify(key.as("str"), value.as("str")) with sticky = true;
     
     }
   
