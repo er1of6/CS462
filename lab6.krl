@@ -3,86 +3,43 @@ ruleset b505207x5 {
         name "notify example"
         author "nathan cerny"
         logging off
+        use module a169x701 alias CloudRain
+        use module a41x186  alias SquareTag
+    }
+
+    rule HelloWorld is active {
+        select when web cloudAppSelected
+        pre {
+            my_html = <<
+            <h5>Hello, world!</h5>
+            Venue: #{ent:venue} </br>
+            City: #{ent:city} </br>
+            shout: #{ent:shout} </br>
+            createdAt: #{ent:createdAt} </br>
+            >>;
+        }
+        {
+            SquareTag:inject_styling();
+            CloudRain:createLoadPanel("Hello World!", {}, my_html);
+        }
+  }
+  rule process_fs_checkin {
+    select when foursquare checkin
+    pre{
+        r = event:attr("checkin").decode();
+        venue = r.pick("$.venue.name");
+        city = r.pick("$..city");
+        shout = r.pick("$..shout");
+        createdAt = r.pick("$..createdAt");
     }
     
-    dispatch {
-        // domain "exampley.com"
-        // xnrrv5u46fcruqw642tm7v2z
+   always{
+         set ent:venue venue;
+         set ent:city city;
+         set ent:shout shout;
+         set ent:createdAt createdAt;
     }
-    global {
-        baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?";
-         watch_link = <<
-                <form id = "my_form" onsubmit="return false" >
-                    Title: <input type="text" name="inputTitle"><br>
-                    <input type="submit" value="Submit">
-                </form>
-            >>;
-              getMovie = function(searchTerm){
-                r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-                    {"apikey": "xnrrv5u46fcruqw642tm7v2z",
-                    "q": "#{searchTerm}"});
-              
-                total = r.pick("$.content").decode().pick("$.total");
-                
-                movie = r.pick("$.content").decode().pick("$.movies[0]");
-                thumbnail = movie.pick("$..thumbnail");
-                title = movie.pick("$..title");
-                year = movie.pick("$..year");
-                synopsis  = movie.pick("$..synopsis");
-                critics_score  = movie.pick("$..critics_score");
-                critics_rating = movie.pick("$..critics_rating");
-                audience_rating = movie.pick("$..audience_rating");
-                audience_score = movie.pick("$..audience_score");
-
-                html = << 
-                <h2> #{title} </h2>
-                <img src="#{thumbnail}" width="100">  </br>
-                    year:#{year} </br>
-                    synopsis: #{synopsis} </br>
-                    critics score: #{critics_score} </br>
-                    critics rating: #{critics_rating} </br>
-                    audience rating: #{audience_rating} </br>
-                    audience score: #{audience_score} </br>
-                    total: #{total}
-
-                >>;
-                badHtml = << <h1> Invalid title: #{searchTerm} </h1> >>;
-                html = (total > 0) => html | badHtml;
-                
-                html
-            };
-    }
-    rule first_rule {
-        select when web pageview
-       
-       pre{
-       
-        }
-        
-        every{
-        
-        append("#main", watch_link);
-        
-        watch("#my_form", "submit");
-        }
-        
-     
-       
-    }
-      rule clicked_rule {
-        select when web submit "#my_form"
-        pre{
-            searchTitle = event:attr("inputTitle")
-            
-        }
-        
-          every{
-       
-        replace_inner("#main", getMovie(searchTitle) );
-        append("#main", watch_link);
-        
-        watch("#my_form", "submit");
-        }
-       
-    }
+   
+  }
+  
 }
