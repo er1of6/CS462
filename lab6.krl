@@ -18,6 +18,7 @@ ruleset b505207x5 {
         }
         {
             SquareTag:inject_styling();
+            CloudRain:createLoadPanel("Hello World!", {}, " <h5>Hello, world!</h5>");
        
             notify("message", " ") with sticky = true;
         }
