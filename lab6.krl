@@ -17,7 +17,7 @@ ruleset b505207x5 {
             <h5>Hello, world!</h5>
             Value: #{ent:v} </br>
             Key: #{ent:k} </br>
-            mapString
+            #{mapString}
             >>;
         }
         {
