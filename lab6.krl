@@ -37,7 +37,7 @@ ruleset b505207x5 {
     select when explicit new_location_data
     
     pre{
-        theMap = {};
+        theMap = ent:m;
         key = event:attr("key");
         value = event:attr("value");
         thing = 'hello';
