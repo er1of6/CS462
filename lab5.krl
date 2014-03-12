@@ -41,7 +41,7 @@ ruleset b505207x4 {
          
           raise explicit event new_location_data for b505207x5
                 with key = "fs_checkin"
-                and value = data_map;
+                and value = "do something";
     }
    
   }
