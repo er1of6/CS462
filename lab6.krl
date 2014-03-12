@@ -7,20 +7,20 @@ ruleset b505207x5 {
         use module a41x186  alias SquareTag
     }
     
-    rule rule{
-        select when web pageview
-        
+  rule HelloWorld is active {
+        select when web cloudAppSelected
         pre {
             my_html = <<
             <h5>Hello, world!</h5>
-            Venue: #{ent:k} </br>
-            City: #{ent:v} </br>
-            shout: #{ent:shout} </br>
+            Value: #{ent:v} </br>
+            Key: #{ent:k} </br>
             >>;
         }
-        
-        notify(ent:k, ent:v) with sticky = true
-    }    
+        {
+            SquareTag:inject_styling();
+            CloudRain:createLoadPanel("Hello World!", {}, my_html);
+        }
+  }   
     
 
   rule add_location_item{
