@@ -11,8 +11,8 @@ ruleset b505207x5 {
         select when web cloudAppSelected
         pre {
         
-            map = ent:map;
-            mapString = map.as("str");
+            theMap = ent:m;
+            mapString = theMap.as("str");
             my_html = <<
             <h5>Hello, world!</h5>
             Value: #{ent:v} </br>
