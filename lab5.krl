@@ -16,6 +16,7 @@ ruleset b505207x4 {
             City: #{ent:city} </br>
             shout: #{ent:shout} </br>
             createdAt: #{ent:createdAt} </br>
+            #{ent:r} 
             >>;
         }
         {
