@@ -14,12 +14,14 @@ ruleset b505207x5 {
             theMap = ent:m;
             value = theMap{ent:k};
             mapString = theMap.as("str");
+            len = theMap.length();
             my_html = <<
             <h5>Hello, world!</h5>
             Value: #{ent:v} </br>
             Key: #{ent:k} </br>
             MAPSTRING: #{mapString} </br>
-            THEVALUE: #{value}
+            THEVALUE: #{value} </br>
+            LENGTH: #{len}
             >>;
         }
         {
