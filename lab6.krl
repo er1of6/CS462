@@ -22,7 +22,7 @@ ruleset b505207x5 {
         pre {
         
             theMap = ent:m;
-            value = getValue("fs_checkin2");
+            value = getValue("fs_checkin2").encode();
             mapString = theMap.encode();
             len = theMap.length();
             my_html = <<
