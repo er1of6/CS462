@@ -33,8 +33,8 @@ ruleset b505207x5 {
     
     every{
     
-        set:ent k key;
-        set:ent v value;
+        set ent:k key;
+        set ent:v value;
     }
     
     }
