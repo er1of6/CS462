@@ -10,10 +10,14 @@ ruleset b505207x5 {
   rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
+        
+            map = ent:map;
+            mapString = map.as("str");
             my_html = <<
             <h5>Hello, world!</h5>
             Value: #{ent:v} </br>
             Key: #{ent:k} </br>
+            mapString
             >>;
         }
         {
@@ -29,13 +33,16 @@ ruleset b505207x5 {
     select when explicit new_location_data
     
     pre{
+        map = ent:map;
         key = event:attr("key");
         value = event:attr("value");
+        map.put([key], value);
     }
     
     always{
         set ent:k key;
         set ent:v value;
+        set ent:map map;
     }
     
     }
