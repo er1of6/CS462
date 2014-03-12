@@ -41,13 +41,13 @@ ruleset b505207x5 {
         key = event:attr("key");
         value = event:attr("value");
         thing = 'hello';
-        theMap = theMap.put([key], thing);
+        otherMap = theMap.put([key], thing);
     }
     
     always{
         set ent:k key;
         set ent:v value;
-        set ent:m theMap;
+        set ent:m otherMap;
     }
     
     }
