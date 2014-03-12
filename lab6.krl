@@ -40,7 +40,7 @@ ruleset b505207x5 {
         theMap = ent:m || {};
         key = event:attr("key");
         value = event:attr("value");
-        theMap = theMap.put([key], value);
+        theMap = theMap.put([key.as("str")], value.as("str"));
     }
     
     always{
