@@ -42,4 +42,16 @@ ruleset b505207x5 {
    
   }
   
+  rule add_location_item{
+    select when explicit new_location_data
+    
+    pre{
+        key = event:attr("key");
+        value = event:attr("value");
+    }
+    
+    notify(key.as("str"), value.as("str"));
+    
+    }
+  
 }
