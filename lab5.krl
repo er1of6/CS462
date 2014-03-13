@@ -10,7 +10,6 @@ ruleset b505207x4 {
     rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
-            thing = ent:r;
         
             my_html = <<
             <h5>Hello, world!</h5>
@@ -18,7 +17,7 @@ ruleset b505207x4 {
             City: #{ent:city} </br>
             shout: #{ent:shout} </br>
             createdAt: #{ent:createdAt} </br>
-            thing: #{ent:thing} </br>
+            thing: #{ent:r} </br>
             >>;
             
         }
