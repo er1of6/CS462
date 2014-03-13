@@ -35,7 +35,7 @@ ruleset b505207x4 {
         innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt};
     }
     
-    send_directive(venue) with key = 'checkin' and value = venue;
+    send_directive(venue) with key = 'checkin' and value = innards;
     
    always{
          set ent:venue venue;
