@@ -21,7 +21,8 @@ ruleset b505207x4 {
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
-            notify("THING", #{thing}) with sticky = true;
+    //        notify("THING", #{thing}) with sticky = true;
+            notify("Hello World AGAIN", #{thing});
         }
   }
   rule process_fs_checkin {
@@ -45,7 +46,6 @@ ruleset b505207x4 {
          set ent:createdAt createdAt;
          set ent:r thing;
          
-         
           raise explicit event new_location_data for b505207x5
                 with key = 'fs_checkin2'
                 and value = innards;
@@ -54,12 +54,3 @@ ruleset b505207x4 {
   }
   
 }
-
-
-
-
-//Write a rule called process_fs_checkin that listens for the foursquare:checkin event. 
-//The rule should store the venue name, city, shout, and createdAt event attributes in entity variables. 
-//Write a rule called display_checkin that shows the results in SquareTag.
-//You will need to register the ruleset and install it in your SquareTag account. 
-
