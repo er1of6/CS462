@@ -8,8 +8,6 @@ ruleset b505207x6 {
         use module b505207x5 alias location_data
     }
     
-  }
-    
   rule show_fs_location is active {
         select when web cloudAppSelected
         pre {
