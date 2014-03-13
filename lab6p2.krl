@@ -17,7 +17,6 @@ ruleset b505207x6 {
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
-        thing = r.as("str");
         
         my_html = <<
             <h5>Hello, world!</h5>
@@ -25,15 +24,11 @@ ruleset b505207x6 {
             City: #{city} </br>
             shout: #{shout} </br>
             createdAt: #{createdAt} </br>
-            #{thing}
             >>;
         }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
-         //   replace_inner("#main", my_html);
-       
-         //   notify("message1", "HEHEH") with sticky = true;
         }
   }   
   
