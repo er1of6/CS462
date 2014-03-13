@@ -6,7 +6,7 @@ ruleset b505207x5 {
         use module a169x701 alias CloudRain
         use module a41x186  alias SquareTag
         
-        provides add_location_item
+        provides getValue
     }
     
     global {
