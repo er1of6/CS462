@@ -19,14 +19,13 @@ ruleset b505207x6 {
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
-        r = r.as("str");
         
         my_html = <<
             <h5>Hello, world!</h5>
-            Venue: #{ent:venue} </br>
-            City: #{ent:city} </br>
-            shout: #{ent:shout} </br>
-            createdAt: #{ent:createdAt} </br>
+            Venue: #{venue} </br>
+            City: #{city} </br>
+            shout: #{shout} </br>
+            createdAt: #{createdAt} </br>
             >>;
         }
         {
@@ -34,7 +33,7 @@ ruleset b505207x6 {
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
          //   replace_inner("#main", my_html);
        
-       //     notify("message1", theMap.length()) with sticky = true;
+            notify("message1", "HEHEH") with sticky = true;
         }
   }   
   
