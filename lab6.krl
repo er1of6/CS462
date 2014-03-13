@@ -52,6 +52,8 @@ ruleset b505207x5 {
         otherMap = theMap.put([key], value);
     }
     
+    send_directive(key) with key = 'location' and value = value;
+    
     always{
         set ent:k key;
         set ent:v value;
