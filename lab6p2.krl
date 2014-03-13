@@ -13,7 +13,7 @@ ruleset b505207x6 {
         pre {
         
         r = location_data:getValue('fs_checkin2');
-        venue = r.pick("$.venue.name");
+        venue = r.pick("$..venue");
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
