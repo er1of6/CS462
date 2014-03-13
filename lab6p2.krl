@@ -12,7 +12,7 @@ ruleset b505207x6 {
         select when web cloudAppSelected
         pre {
         
-        r = location_data:get_location_data('fs_checkin2');
+        r = location_data:getValue('fs_checkin2');
         venue = r.pick("$.venue.name");
         city = r.pick("$..city");
         shout = r.pick("$..shout");
