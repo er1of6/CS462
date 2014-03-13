@@ -35,13 +35,15 @@ ruleset b505207x4 {
         innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt};
     }
     
+    send_directive(venue) with key = 'checkin' and value = venue;
+    
    always{
          set ent:venue venue;
          set ent:city city;
          set ent:shout shout;
          set ent:createdAt createdAt;
          
-         send_directive(venue) with key = 'checkin' and value = venue;
+         
           raise explicit event new_location_data for b505207x5
                 with key = 'fs_checkin2'
                 and value = innards;
