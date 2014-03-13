@@ -21,6 +21,7 @@ ruleset b505207x4 {
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
+            notify("THING", #{thing}) with sticky = true;
         }
   }
   rule process_fs_checkin {
@@ -31,7 +32,7 @@ ruleset b505207x4 {
         city = r.pick("$..city");
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
-        r = r.as("str");
+        thing = r.as("str");
         innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt};
     }
     
@@ -42,6 +43,7 @@ ruleset b505207x4 {
          set ent:city city;
          set ent:shout shout;
          set ent:createdAt createdAt;
+         set ent:r thing;
          
          
           raise explicit event new_location_data for b505207x5
