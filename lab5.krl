@@ -10,19 +10,23 @@ ruleset b505207x4 {
     rule HelloWorld is active {
         select when web cloudAppSelected
         pre {
+            thing = ent:r;
+        
             my_html = <<
             <h5>Hello, world!</h5>
             Venue: #{ent:venue} </br>
             City: #{ent:city} </br>
             shout: #{ent:shout} </br>
             createdAt: #{ent:createdAt} </br>
+            thing: #{ent:thing} </br>
             >>;
+            
         }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
     //        notify("THING", #{thing}) with sticky = true;
-            notify("Hello World AGAIN", thing);
+     //       notify("Hello World AGAIN", thing);
         }
   }
   rule process_fs_checkin {
