@@ -22,7 +22,7 @@ ruleset b505207x4 {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
     //        notify("THING", #{thing}) with sticky = true;
-            notify("Hello World AGAIN", #{thing});
+            notify("Hello World AGAIN", thing);
         }
   }
   rule process_fs_checkin {
