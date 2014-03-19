@@ -31,6 +31,8 @@ ruleset b505207x7 {
             lat2: #{ent:lat} </br>
             lng2: #{ent:lng} </br>
             hit: #{ent:hit} </br>
+            fslat: #{ent:fslat} </br>
+            fslng: #{ent:fslng} </br>
             >>;
         }
         {
@@ -42,6 +44,9 @@ ruleset b505207x7 {
     rule thing is active {
         select when theCurrent theLocation
         pre {
+        r = location_data:getValue('fs_checkin2');
+        fslat = r.pick("$..lat");
+        fslng = r.pick("$..lng");
         lat = event:attr("lat");
         lng = event:attr("lng");
       }
@@ -52,6 +57,8 @@ ruleset b505207x7 {
         set ent:lat lat;
         set ent:lng lng;
         set ent:hit "hit";
+        set ent:fslat fslat:
+        set ent:fslng fslng:
        
        }
   }  
