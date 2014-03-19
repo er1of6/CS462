@@ -42,10 +42,8 @@ ruleset b505207x7 {
     rule thing is active {
         select when theLocation theCurrent
         pre {
-        r = event:attr("theCurrent").decode();
-        
-        venue = r.pick("$..lat");
-        city = r.pick("$..lng");
+        lat = event:attr("lat");
+        lng = event:attr("lat");
       }
       
       send_directive('hit') with key = 'success';
