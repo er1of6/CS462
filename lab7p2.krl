@@ -9,10 +9,6 @@ ruleset b505207x8 {
     
   rule show_fs_location is active {
         select when web cloudAppSelected
-        pre {
-        
-            
-        }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
