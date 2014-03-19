@@ -9,11 +9,44 @@ ruleset b505207x8 {
     
   rule show_fs_location is active {
         select when web cloudAppSelected
+        
+        pre{
+             my_html = <<
+            <h5>Hello, world!</h5>
+            event: #{ent:name} </br>
+            dr: #{ent:dr} </br>
+            >>;
+        }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
         }
   }  
+  
+  rule nearby is active {
+    select when explicit nearby
+    
+    pre{
+        dr = event:attr("dr");
+    }
+    always{
+    set ent:name = "nearby"
+    set ent:dr
+    }
+  
+  }
+  
+  rule faraway is active {
+    select when explicit faraway
+    
+      pre{
+        dr = event:attr("dr");
+    }
+     always{
+    set ent:name = "faraway"
+    }
+    
+  }
   
    
   
