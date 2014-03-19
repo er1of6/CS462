@@ -45,7 +45,7 @@ ruleset b505207x7 {
         
         venue = r.pick("$..lat");
         city = r.pick("$..lng");
-      
+      }
        always{
         set ent:lat lat;
         set ent:lng lng;
