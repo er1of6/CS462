@@ -30,6 +30,7 @@ ruleset b505207x7 {
             lng: #{lng} </br>
             lat2: #{ent:lat} </br>
             lng2: #{ent:lng} </br>
+            hit: #{ent:hit} </br>
             >>;
         }
         {
@@ -49,6 +50,7 @@ ruleset b505207x7 {
        always{
         set ent:lat lat;
         set ent:lng lng;
+        set ent:hit "hit";
        
        }
   }  
