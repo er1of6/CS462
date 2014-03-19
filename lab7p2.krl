@@ -27,11 +27,11 @@ ruleset b505207x8 {
     select when explicit nearby
     
     pre{
-        dr = event:attr("dr");
+       
     }
     always{
-    set ent:name = "nearby"
-    set ent:dr
+    set ent:name "nearby";
+    set ent:dr event:attr("dr");
     }
   
   }
@@ -40,10 +40,11 @@ ruleset b505207x8 {
     select when explicit faraway
     
       pre{
-        dr = event:attr("dr");
+     //   dr = event:attr("dr");
     }
      always{
-    set ent:name = "faraway"
+    set ent:name "faraway";
+    set ent:dr event:attr("dr");
     }
     
   }
