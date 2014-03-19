@@ -26,13 +26,12 @@ ruleset b505207x7 {
             City: #{city} </br>
             shout: #{shout} </br>
             createdAt: #{createdAt} </br>
-            lat: #{lat} </br>
-            lng: #{lng} </br>
             lat2: #{ent:lat} </br>
             lng2: #{ent:lng} </br>
             hit: #{ent:hit} </br>
             fslat: #{ent:fslat} </br>
             fslng: #{ent:fslng} </br>
+            dr: #{ent:dR} </br>
             >>;
         }
         {
@@ -49,6 +48,19 @@ ruleset b505207x7 {
         fslng = r.pick("$..lng");
         lat = event:attr("lat");
         lng = event:attr("lng");
+        
+       
+        rlat = math:deg2rad(lat);
+        rlng = math:deg2rad(lng);
+        rfslat = math:deg2rad(fslat);
+        rfslng = math:deg2rad(fslng);
+        
+        r90   = math:pi()/2;
+        rEk   = 6378; 
+        
+        dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat);
+        
+        
       }
       
       send_directive('hit') with key = 'success';
@@ -59,6 +71,7 @@ ruleset b505207x7 {
         set ent:hit "hit";
         set ent:fslat fslat;
         set ent:fslng fslng;
+        set ent:dr dR;
        
        }
   }  
