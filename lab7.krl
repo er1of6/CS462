@@ -43,7 +43,7 @@ ruleset b505207x7 {
         select when theCurrent theLocation
         pre {
         lat = event:attr("lat");
-        lng = event:attr("lat");
+        lng = event:attr("lng");
       }
       
       send_directive('hit') with key = 'success';
