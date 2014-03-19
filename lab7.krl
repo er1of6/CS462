@@ -57,8 +57,8 @@ ruleset b505207x7 {
         set ent:lat lat;
         set ent:lng lng;
         set ent:hit "hit";
-        set ent:fslat fslat:
-        set ent:fslng fslng:
+        set ent:fslat fslat;
+        set ent:fslng fslng;
        
        }
   }  
