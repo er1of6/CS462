@@ -40,7 +40,7 @@ ruleset b505207x7 {
   }  
   
     rule thing is active {
-        select when theLocation theCurrent
+        select when theCurrent theLocation
         pre {
         lat = event:attr("lat");
         lng = event:attr("lat");
