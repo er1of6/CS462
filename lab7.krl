@@ -47,6 +47,9 @@ ruleset b505207x7 {
         venue = r.pick("$..lat");
         city = r.pick("$..lng");
       }
+      
+      send_directive('hit') with key = 'success';
+      
        always{
         set ent:lat lat;
         set ent:lng lng;
