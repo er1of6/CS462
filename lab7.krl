@@ -65,7 +65,7 @@ ruleset b505207x7 {
         
       }
       
-      send_directive('hit') with key = 'success';
+      send_directive('hit') with key = 'success' and eventFired = ename;
       
        always{
         set ent:lat lat;
