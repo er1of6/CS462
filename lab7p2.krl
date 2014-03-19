@@ -5,6 +5,13 @@ ruleset b505207x8 {
         logging off
         use module a169x701 alias CloudRain
         use module a41x186  alias SquareTag
+        
+        
+         key twilio {"account_sid" : “ACb2e87aa20dca2f309b0fb2b02f1e892f",
+                    "auth_token"  : "86fefe3b6339b70d97a62408508484fd"
+        }
+         
+        use module a8x115 alias twilio with twiliokeys = keys:twilio()
     }
     
   rule show_fs_location is active {
@@ -27,6 +34,9 @@ ruleset b505207x8 {
     select when explicit nearby
     
     pre{
+        Twilio:
+        
+         twilio:send_sms("5037268034", "3852452538", event:attr("dr"));
        
     }
     always{
