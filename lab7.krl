@@ -28,12 +28,31 @@ ruleset b505207x7 {
             createdAt: #{createdAt} </br>
             lat: #{lat} </br>
             lng: #{lng} </br>
+            lat2: #{ent:lat} </br>
+            lng2: #{ent:lng} </br>
             >>;
         }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
         }
-  }   
+  }  
+  
+    rule thing is active {
+        select when theLocation theCurrent
+        pre {
+        r = event:attr("theCurrent").decode();
+        
+        venue = r.pick("$..lat");
+        city = r.pick("$..lng");
+      
+       always{
+        set ent:lat lat;
+        set ent:lng lng;
+       
+       }
+  }  
+  
+  
   
 }
