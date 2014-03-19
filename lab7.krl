@@ -75,7 +75,7 @@ ruleset b505207x7 {
         set ent:fslng fslng;
         set ent:dr dR;
         
-               raise explicit event #{ename} for b505207x8
+               raise explicit event ename for b505207x8
                 with key = 'fs_checkin2';
         
         }
