@@ -76,7 +76,7 @@ ruleset b505207x7 {
         set ent:dr dR;
         
                raise explicit event ename for b505207x8
-                with key = 'fs_checkin2';
+                with key = dR;
         
         }
   }  
