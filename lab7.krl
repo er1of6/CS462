@@ -59,6 +59,8 @@ ruleset b505207x7 {
         rEm   = 3963.105; 
         
         dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat, rEm);
+        ename = (dR < 5) => "nearby" | "faraway";
+  
         
         
       }
@@ -73,14 +75,14 @@ ruleset b505207x7 {
         set ent:fslng fslng;
         set ent:dr dR;
         
-        eventname = (dr > 0) => "nearby" | "faraway";
+               raise explicit event #{ename} for b505207x8
+                with key = 'fs_checkin2';
         
-        raise explicit event eventname for b505207x8
-                with distance = 'dr;
-       
-       }
+        }
   }  
   
-  
-  
 }
+
+
+
+  //    ename = (dR < 5) => "nearby" | "faraway";
