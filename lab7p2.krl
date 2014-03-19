@@ -38,7 +38,7 @@ ruleset b505207x8 {
        
     }
     
-    twilio:send_sms("5037268034", "3852452538", event:attr("dr"));
+    twilio:send_sms("5037268034", "3852452538", "distance: " + event:attr("dr"));
     always{
      
     set ent:name "nearby";
