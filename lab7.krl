@@ -72,6 +72,11 @@ ruleset b505207x7 {
         set ent:fslat fslat;
         set ent:fslng fslng;
         set ent:dr dR;
+        
+        eventname = (dr > 0) => "nearby" | "faraway";
+        
+        raise explicit event eventname for b505207x8
+                with distance = 'dr;
        
        }
   }  
