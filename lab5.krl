@@ -17,6 +17,8 @@ ruleset b505207x4 {
             City: #{ent:city} </br>
             shout: #{ent:shout} </br>
             createdAt: #{ent:createdAt} </br>
+            lat: #{ent:lat} </br>
+            lng: #{ent:lng}
             >>;
             
         }
@@ -36,7 +38,9 @@ ruleset b505207x4 {
         shout = r.pick("$..shout");
         createdAt = r.pick("$..createdAt");
         thing = r.as("str");
-        innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt};
+        lat = r.pick("$..lat");
+        lng = r.pick("$..lng");
+        innards = {'venue' : venue, 'city' : city, 'shout' : shout, 'createdAt' : createdAt, 'lat' : lat, 'lng' : lng};
     }
     
     send_directive(venue) with key = 'checkin' and value = venue;
@@ -46,6 +50,8 @@ ruleset b505207x4 {
          set ent:city city;
          set ent:shout shout;
          set ent:createdAt createdAt;
+         set ent:lat lat;
+         set ent:lng lng;
          set ent:r thing;
          
           raise explicit event new_location_data for b505207x5
