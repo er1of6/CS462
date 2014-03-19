@@ -49,6 +49,19 @@ ruleset b505207x8 {
     
   }
   
+    rule ename is active {
+    select when explicit ename
+    
+      pre{
+     //   dr = event:attr("dr");
+    }
+     always{
+    set ent:name "ename";
+    set ent:dr event:attr("dr");
+    }
+    
+  }
+  
    
   
 }
