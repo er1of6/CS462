@@ -31,7 +31,7 @@ ruleset b505207x7 {
             hit: #{ent:hit} </br>
             fslat: #{ent:fslat} </br>
             fslng: #{ent:fslng} </br>
-            dr: #{ent:dR} </br>
+            dr: #{ent:dr} </br>
             >>;
         }
         {
@@ -58,7 +58,7 @@ ruleset b505207x7 {
         r90   = math:pi()/2;
         rEk   = 6378; 
         
-        dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat);
+        dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat, rEk);
         
         
       }
