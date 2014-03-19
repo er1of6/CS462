@@ -56,9 +56,9 @@ ruleset b505207x7 {
         rfslng = math:deg2rad(fslng);
         
         r90   = math:pi()/2;
-        rEk   = 6378; 
+        rEm   = 3963.105; 
         
-        dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat, rEk);
+        dR = math:great_circle_distance(rlng,r90 - rlat, rfslng,r90 - rfslat, rEm);
         
         
       }
