@@ -7,7 +7,7 @@ ruleset b505207x8 {
         use module a41x186  alias SquareTag
         
         
-         key twilio {"account_sid" : “ACb2e87aa20dca2f309b0fb2b02f1e892f",
+         key twilio {"account_sid" : "ACb2e87aa20dca2f309b0fb2b02f1e892f",
                     "auth_token"  : "86fefe3b6339b70d97a62408508484fd"
         }
          
@@ -34,12 +34,13 @@ ruleset b505207x8 {
     select when explicit nearby
     
     pre{
-        Twilio:
         
-         twilio:send_sms("5037268034", "3852452538", event:attr("dr"));
        
     }
+    
+    twilio:send_sms("5037268034", "3852452538", event:attr("dr"));
     always{
+     
     set ent:name "nearby";
     set ent:dr event:attr("dr");
     }
