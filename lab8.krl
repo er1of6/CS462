@@ -24,7 +24,7 @@ ruleset b505207x9 {
   }  
   
     rule thing is active {
-        select when location notification
+        select when notification location
         pre {
         
         lat = event:attr("lat");
