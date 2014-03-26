@@ -51,15 +51,14 @@ ruleset b505207x4 {
             createdAt: #{ent:createdAt} </br>
             lat: #{ent:lat} </br>
             lng: #{ent:lng} </br>
-            count: #{ent:count}
+            count: #{ent:count} </br>
+            otherCount: #{ent:otherCount}
             >>;
             
         }
         {
             SquareTag:inject_styling();
             CloudRain:createLoadPanel("Hello World!", {}, my_html);
-    //        notify("THING", #{thing}) with sticky = true;
-     //       notify("Hello World AGAIN", thing);
         }
   }
   rule process_fs_checkin {
@@ -86,6 +85,7 @@ ruleset b505207x4 {
          set ent:lat lat;
          set ent:lng lng;
          set ent:r thing;
+         set ent:otherCount 9;
          
           raise explicit event new_location_data for b505207x5
                 with key = 'fs_checkin2'
