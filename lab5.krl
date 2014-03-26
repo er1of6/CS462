@@ -27,7 +27,7 @@ ruleset b505207x4 {
             count = ent:count;
         }
         
-        every{
+        {
         
         event:send(subscription_map_temp, "notification", "location")
             with attrs = {"lat": lat, "lng" : lng}
