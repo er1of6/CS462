@@ -21,6 +21,7 @@ ruleset b505207x4 {
             value = event:attr("value");
             lat = value.pick("$..lat");
             lng = value.pick("$..lng");
+            count = ent:count;
         }
         
         every{
