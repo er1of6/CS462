@@ -9,7 +9,7 @@ ruleset b505207x4 {
     
     global{
         subscription_map = {
-        "cid+1": "A32C6A60-B4A3-11E3-8EC9-4781AD931101",
+        "cid": "A32C6A60-B4A3-11E3-8EC9-4781AD931101",
         "cid+2": "E8298580-B4A3-11E3-A180-1DF8283232C8"
         };
     }
