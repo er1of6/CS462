@@ -18,6 +18,9 @@ ruleset b505207x4 {
         select when explicit new_location_data
         foreach subscription_map setting (n,v)
         pre{
+         subscription_map_temp = {
+            "cid": v
+            };
             value = event:attr("value");
             lat = value.pick("$..lat");
             lng = value.pick("$..lng");
@@ -26,9 +29,8 @@ ruleset b505207x4 {
         
         every{
         
-        event:send(subscription_map, "notification", "location")
+        event:send(subscription_map_temp, "notification", "location")
             with attrs = {"lat": lat, "lng" : lng}
-              and cid_key = n
         }
         
         always{
