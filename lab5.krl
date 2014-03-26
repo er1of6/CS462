@@ -14,6 +14,24 @@ ruleset b505207x4 {
         };
     }
     
+    rule MyDispatcherRuleThing is active {
+        select when explicit new_location_data
+        foreach subscription_map setting (n,v)
+        pre{
+            value = event:attr("value");
+            lat = value.pick("$..lat");
+            lng = value.pick("$..lng");
+        }
+        
+        every{
+        
+        event:send(subscription_map, "notification", "location")
+            with attrs = {"lat": lat, "lng" : long}
+              and cid_key = n
+        }
+        
+    }
+    
 
 
     rule HelloWorld is active {
