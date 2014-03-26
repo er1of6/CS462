@@ -31,7 +31,7 @@ ruleset b505207x4 {
         }
         
         always{
-            set ent:count 9;
+            set ent:count count+1;
         }
         
     }
