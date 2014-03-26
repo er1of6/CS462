@@ -6,29 +6,6 @@ ruleset b505207x4 {
         use module a169x701 alias CloudRain
         use module a41x186  alias SquareTag
     }
-    
-    global {
-        
-    subscription_map =
-     {"cid+1":"A32C6A60-B4A3-11E3-8EC9-4781AD931101",
-      "cid+2":"E8298580-B4A3-11E3-A180-1DF8283232C8"
-     };
-    }
-    
-    rule dispatcher is active {
-        select when explicit new_location_data
-        value = event:attr("value");
-        lat = value.pick("$..lat");
-        lng = value.pick("$..lng");
-        foreach subscription_map setting (n,v)
-        pre{
-          event:send(subscription_map, "notification", "location")
-            with attrs = {"lat": lat,
-                "lng" : long
-               }
-              and cid_key = n
-        }
-    }
 
     rule HelloWorld is active {
         select when web cloudAppSelected
@@ -77,7 +54,7 @@ ruleset b505207x4 {
          set ent:lng lng;
          set ent:r thing;
          
-          raise explicit event new_location_data 
+          raise explicit event new_location_data for b505207x5
                 with key = 'fs_checkin2'
                 and value = innards;
     }
