@@ -87,7 +87,7 @@ ruleset b505207x4 {
          set ent:r thing;
          set ent:otherCount 9;
          
-          raise explicit event new_location_data for b505207x5
+          raise explicit event new_location_data 
                 with key = 'fs_checkin2'
                 and value = innards;
     }
