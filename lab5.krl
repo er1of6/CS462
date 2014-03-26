@@ -30,6 +30,10 @@ ruleset b505207x4 {
               and cid_key = n
         }
         
+        always{
+            set ent:count 9;
+        }
+        
     }
     
 
@@ -45,7 +49,8 @@ ruleset b505207x4 {
             shout: #{ent:shout} </br>
             createdAt: #{ent:createdAt} </br>
             lat: #{ent:lat} </br>
-            lng: #{ent:lng}
+            lng: #{ent:lng} </br>
+            count: #{ent:count}
             >>;
             
         }
