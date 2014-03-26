@@ -15,6 +15,7 @@ ruleset b505207x9 {
           <h2> latest checkin location: </h2> </br>
             lat: #{ent:lat} </br>
             lng: #{ent:lng} </br>
+            thing: #{ent:thing} </br>
             >>;
         }
         {
@@ -37,6 +38,7 @@ ruleset b505207x9 {
        always{
         set ent:lat lat;
         set ent:lng lng;
+        set ent:thing "I was here";
       
         }
   }  
