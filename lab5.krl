@@ -33,6 +33,7 @@ ruleset b505207x4 {
         
         always{
             set ent:count count+1;
+            set ent:n n;
         }
         
     }
@@ -52,7 +53,8 @@ ruleset b505207x4 {
             lat: #{ent:lat} </br>
             lng: #{ent:lng} </br>
             count: #{ent:count} </br>
-            otherCount: #{ent:otherCount}
+            otherCount: #{ent:otherCount} </br>
+            n: #{ent:n}
             >>;
             
         }
