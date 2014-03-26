@@ -30,7 +30,7 @@ ruleset b505207x4 {
         {
         
         event:send(subscription_map_temp, "notification1", "location1")
-            with attrs = {"lat": "123", "lng" : "456"}
+            with attrs = {"lat": value, "lng" : "456"}
         }
         
         always{
