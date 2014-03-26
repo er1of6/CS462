@@ -32,7 +32,7 @@ ruleset b505207x4 {
         }
         
         always{
-            set ent:count 2;
+            set ent:count count+1;
         }
         
     }
