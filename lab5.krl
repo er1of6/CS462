@@ -14,11 +14,7 @@ ruleset b505207x4 {
         };
     }
     
-    rule dispatcher is active {
-        select when explicit new_location_data
-        value = event:attr("value");
-        
-    }
+
 
     rule HelloWorld is active {
         select when web cloudAppSelected
