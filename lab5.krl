@@ -27,7 +27,7 @@ ruleset b505207x4 {
         every{
         
         event:send(subscription_map, "notification", "location")
-            with attrs = {"lat": lat, "lng" : long}
+            with attrs = {"lat": lat, "lng" : lng}
               and cid_key = n
         }
         
